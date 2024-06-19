@@ -181,13 +181,19 @@ nav .logo-area span:last-child:hover{
 .form-container .form-icons{
     display: flex;
     align-items: center;
-    gap: 20px;
     margin-right: 10px;
     color: #757575;
 }
 
 .form-container .form-icons .material-icons{
     cursor: pointer;
+    padding: 10px;
+}
+
+.form-container .material-icons:hover{
+    background-color: #f1f3f4;
+    color: black;
+    border-radius: 50%;
 }
 
 /* Styles For the Second Form Container */
@@ -248,7 +254,7 @@ nav .logo-area span:last-child:hover{
 }
 
 .notes{
-    height: 130px;
+    height: 150px;
     width: 240px;
     background-color: #ffffff;
     box-shadow: 3px 3px 30px #c2c3c3;
@@ -259,6 +265,7 @@ nav .logo-area span:last-child:hover{
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    position: relative;
 }
 
 
@@ -289,6 +296,11 @@ nav .logo-area span:last-child:hover{
     color: black;
     background-color: #f1f3f4;
     border-radius: 50%;
-    
 }
 
+.notes .checkbox{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    cursor: pointer;
+}
