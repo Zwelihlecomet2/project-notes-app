@@ -189,3 +189,50 @@ nav .logo-area span:last-child:hover{
 .form-container .form-icons .material-icons{
     cursor: pointer;
 }
+
+/* Styles For the Second Form Container */
+.active-form{
+    height: 130px;
+}
+
+.active-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+.active-form form .note-take{
+    border: none;
+    margin-top: 10px;
+}
+
+.active-form .form-icons{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3px;
+}
+
+.active-form .form-icons .icons{
+    display: flex;
+}
+
+.active-form .form-icons .material-icons{
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.active-form .form-icons #doing:hover{
+    cursor:not-allowed;
+}
+
+.active-form .form-icons .close-text{
+    color: black;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: small;
+}
+
+.active-form .form-icons .material-icons:hover{
+    color: black;
+    background-color: #f1f3f4;
+    border-radius: 50%;
+}
