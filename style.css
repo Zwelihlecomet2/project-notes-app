@@ -87,7 +87,7 @@ nav .profile-area{
 
 .tooltip:hover .tooltip-text{
     visibility: visible;
-    transition-delay: .5s;
+    transition-delay: .3s;
 }
 
 /* Hover Styles for the navigation-bar */
@@ -236,3 +236,59 @@ nav .logo-area span:last-child:hover{
     background-color: #f1f3f4;
     border-radius: 50%;
 }
+
+
+/* Styles For the Notes Section*/
+
+.notes-section{
+    display: flex;
+    width: 50px;
+    margin-left: 10em;
+    gap: 20px;
+}
+
+.notes{
+    height: 130px;
+    width: 240px;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 30px #c2c3c3;
+    border: 1px solid #e0e1e0;
+    border-radius: 10px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.notes .note-title{
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: medium;
+    font-weight: 500;
+    color: black;
+}
+
+.notes .note-text{
+    margin-left: 10px;
+}
+
+.notes .note-icons{
+    display: flex;
+}
+
+.notes .note-icons .material-icons{
+    font-size: 1.2rem;
+    color: #757575;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.notes .note-icons .material-icons:hover{
+    color: black;
+    background-color: #f1f3f4;
+    border-radius: 50%;
+    
+}
+
