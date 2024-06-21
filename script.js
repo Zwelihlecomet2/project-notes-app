@@ -12,7 +12,6 @@ const updateTime = () =>{
 updateTime();
 setInterval(updateTime, 1000);
 
-
 const timeText = document.getElementById("timeText");
 
 const updateDay = () =>{
@@ -79,3 +78,20 @@ const updateDay = () =>{
 };
 
 updateDay();
+
+
+// To Be Replaced
+const modalOpening = document.getElementById("modalOpening");
+const note = document.getElementById("note");
+const modalClose = document.getElementById("modalClose");
+const sideBar = document.getElementById("sideBar");
+modalOpening.style.visibility = "hidden";   
+
+note.addEventListener("click", () =>{
+    modalOpening.style.visibility = "visible";
+});
+
+modalClose.addEventListener("click", () =>{
+    modalOpening.style.visibility = "hidden";
+});
+
