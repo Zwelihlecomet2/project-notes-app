@@ -1,5 +1,5 @@
+// For the TimeStamps
 const timeStamp = document.getElementById("timeStamp");
-
 const updateTime = () =>{
     const date = new Date();
     const hour = date.getHours().toString().padStart(2,0);
@@ -80,18 +80,40 @@ const updateDay = () =>{
 updateDay();
 
 
+// The forms
+const firstForm = document.querySelector(".form-container");
+const secondForm = document.querySelector(".active-form");
+const closeForm = document.querySelector(".close-text");
+firstForm.addEventListener("click", () =>{
+    firstForm.style.visibility = "hidden";
+    secondForm.style.visibility = "visible";
+});
+
+closeForm.addEventListener("click", () =>{
+    firstForm.style.visibility = "visible";
+    secondForm.style.visibility = "hidden";
+});
+
 // To Be Replaced
 const modalOpening = document.getElementById("modalOpening");
 const note = document.getElementById("note");
-const modalClose = document.getElementById("modalClose");
+const close = document.getElementById("close");
 const sideBar = document.getElementById("sideBar");
 modalOpening.style.visibility = "hidden";   
 
 note.addEventListener("click", () =>{
     modalOpening.style.visibility = "visible";
+
+    if(secondForm.style.visibility === "visible"){
+        firstForm.style.visibility = "visible";
+        secondForm.style.visibility = "hidden";
+    }
+
+    else{
+        return "";
+    }
 });
 
-modalClose.addEventListener("click", () =>{
+close.addEventListener("click", () =>{
     modalOpening.style.visibility = "hidden";
 });
-

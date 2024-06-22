@@ -199,6 +199,11 @@ nav .logo-area span:last-child:hover{
 /* Styles For the Second Form Container */
 .active-form{
     height: 130px;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 27.4%;
+    visibility: hidden;
 }
 
 .active-form form{
@@ -260,7 +265,7 @@ nav .logo-area span:last-child:hover{
     box-shadow: 3px 3px 30px #c2c3c3;
     border: 1px solid #e0e1e0;
     border-radius: 10px;
-    margin: 40px auto;
+    margin: 70px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
