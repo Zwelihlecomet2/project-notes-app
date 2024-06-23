@@ -84,15 +84,30 @@ updateDay();
 const firstForm = document.querySelector(".form-container");
 const secondForm = document.querySelector(".active-form");
 const closeForm = document.querySelector(".close-text");
+const noteText = document.querySelector("#note-text");
+
 firstForm.addEventListener("click", () =>{
     firstForm.style.visibility = "hidden";
     secondForm.style.visibility = "visible";
+    noteText.focus();
 });
+
 
 closeForm.addEventListener("click", () =>{
     firstForm.style.visibility = "visible";
     secondForm.style.visibility = "hidden";
 });
+
+
+const handleForms = () =>{
+    document.body.addEventListener("click", () =>{
+        if(noteText.value !== ""){
+            console.log(noteText.value);
+        }
+    });
+};
+
+handleForms();
 
 // To Be Replaced
 const modalOpening = document.getElementById("modalOpening");
