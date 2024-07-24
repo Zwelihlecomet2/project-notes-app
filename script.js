@@ -138,3 +138,54 @@
 
 
 
+class Note{
+    constructor(id, title, text){
+        this.id = id;
+        this.title = title;
+        this.text = text;
+    }
+}
+
+class App{
+    constructor(){
+        this.notes = [];
+    }
+
+    addNote(id, {title, text}){
+        const newNote = new Note(id, title, text);
+        this.notes = [...this.notes, newNote];
+    }
+
+    editNote(id, {title, text}){
+        this.notes.map((item) =>{
+            if(item.id === id){
+                item.title = title;
+                item.text = text;
+            }
+        })
+    }
+
+
+    deleteNote(id){
+        this.notes = this.notes.filter(item => item.id !== id);
+    }
+
+    displayNotes(){
+        this.notes.map((item) =>{
+            console.log(`
+            ID: ${item.id}
+            Title: ${item.title}
+            Text: ${item.text}`);
+        });
+    }
+}
+
+const note1 = {
+    title: "test title",
+    text: "test text"
+}
+
+const app = new App();
+
+
+
