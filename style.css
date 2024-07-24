@@ -203,7 +203,7 @@ nav .logo-area span:last-child:hover{
     position: absolute;
     top: 10%;
     left: 27.4%;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .active-form form{

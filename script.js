@@ -149,7 +149,35 @@ class Note{
 class App{
     constructor(){
         this.notes = [];
+        this.$activeForm = document.querySelector(".active-form");
+        this.$formContainer = document.querySelector(".form-container");
+        this.$noteTitle = document.querySelector("#note-title");
+        this.$noteText = document.querySelector("#note-text");
+        this.eventListeners();
     }
+
+    eventListeners(){
+        document.body.addEventListener("click", (event) =>{
+            this.handleFormClick();
+        });
+    }
+
+    handleFormClick(){
+        const isFormContainerClickedOn = this.$formContainer.contains(event.target);
+        const isActiveFormClickedOn = this.$activeForm.contains(event.target);
+
+
+        if(isFormContainerClickedOn){
+            this.openActiveForm();
+        }
+    }
+
+    openActiveForm(){
+        this.$activeForm.style.visibility = "visible";
+        this.$formContainer.style.visibility = "hidden";
+        this.$noteText.focus();
+    }
+
 
     addNote(id, {title, text}){
         const newNote = new Note(id, title, text);
@@ -186,6 +214,3 @@ const note1 = {
 }
 
 const app = new App();
-
-
-
