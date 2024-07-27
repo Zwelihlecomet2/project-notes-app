@@ -165,10 +165,18 @@ class App{
     handleFormClick(){
         const isFormContainerClickedOn = this.$formContainer.contains(event.target);
         const isActiveFormClickedOn = this.$activeForm.contains(event.target);
-
+        const title = this.$noteTitle.value;
+        const text = this.$noteText.value;
 
         if(isFormContainerClickedOn){
             this.openActiveForm();
+        }
+
+        else if(!isActiveFormClickedOn){
+            if(title !== "" && text !== ""){
+                this.addNote({title, text});
+            }
+            this.closeActiveForm();
         }
     }
 
@@ -178,10 +186,17 @@ class App{
         this.$noteText.focus();
     }
 
+    closeActiveForm(){
+        this.$formContainer.style.visibility = "visible";
+        this.$activeForm.style.visibility = "hidden";
+        this.$noteTitle.value = "";
+        this.$noteText.value = "";
+    }
 
-    addNote(id, {title, text}){
-        const newNote = new Note(id, title, text);
+    addNote({title, text}){
+        const newNote = new Note(cuid(), title, text);
         this.notes = [...this.notes, newNote];
+        this.displayNotes();
     }
 
     editNote(id, {title, text}){
@@ -205,6 +220,13 @@ class App{
             Title: ${item.title}
             Text: ${item.text}`);
         });
+
+        // if(title !== "" && text !== ""){
+            
+        //     console.log(`
+        //     ID: ${cuid()}
+        //     This is a title: "${title}" and This is a text: "${text}"`);
+        // }
     }
 }
 
