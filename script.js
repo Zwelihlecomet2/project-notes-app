@@ -153,6 +153,7 @@ class App{
         this.$formContainer = document.querySelector(".form-container");
         this.$noteTitle = document.querySelector("#note-title");
         this.$noteText = document.querySelector("#note-text");
+        this.$notes = document.querySelector(".notes-content");
         this.eventListeners();
     }
 
@@ -214,19 +215,54 @@ class App{
     }
 
     displayNotes(){
-        this.notes.map((item) =>{
-            console.log(`
-            ID: ${item.id}
-            Title: ${item.title}
-            Text: ${item.text}`);
-        });
+        this.$notes.innerHTML = this.notes.map((item) => {
+            return `
+                    <div class="notes-content">
+                        <div class="notes">
+                            <div class="tooltip">
+                                <span class="material-icons checkbox">check_circle</span>
+                                <span class="tooltip-text">Select note</span>
+                            </div>
+                            <div class="note-title"><span>${item.title}</span></div>
+                            <div class="note-text"><span>${item.text}</span></div>
+                            <div class="note-icons">
+                                <div class="tooltip">
+                                    <span class="material-icons">add_alert</span>
+                                    <span class="tooltip-text">Remind me</span>
+                                </div>
+                                <div class="tooltip">
+                                    <span class="material-icons">person_add_alt</span>
+                                    <span class="tooltip-text">Collaborator</span>
+                                </div>
+                                <div class="tooltip">
+                                    <span class="material-icons">palette</span>
+                                    <span class="tooltip-text">Background Options</span>
+                                </div>
+                                <div class="tooltip">
+                                    <span class="material-icons">image</span>
+                                    <span class="tooltip-text">Add image</span>
+                                </div>
+                                <div class="tooltip">
+                                    <span class="material-icons">archive</span>
+                                    <span class="tooltip-text">Archive</span>
+                                </div>
+                                <div class="tooltip">
+                                    <span class="material-icons">more_vert</span>
+                                    <span class="tooltip-text">More</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `
+        }).join("");
 
-        // if(title !== "" && text !== ""){
-            
+        // this.notes.map((item) =>{
         //     console.log(`
-        //     ID: ${cuid()}
-        //     This is a title: "${title}" and This is a text: "${text}"`);
-        // }
+        //     ID: ${item.id}
+        //     Title: ${item.title}
+        //     Text: ${item.text}`);
+        // });
+
     }
 }
 
