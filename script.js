@@ -155,12 +155,16 @@ class App{
         this.$noteText = document.querySelector("#note-text");
         this.$notes = document.querySelector(".notes-content");
         this.$closeText = document.querySelector(".close-text");
+        this.$modal = document.querySelector(".modal");
+        this.$closeModal = document.querySelector("#close");
         this.eventListeners();
     }
 
     eventListeners(){
         document.body.addEventListener("click", (event) =>{
-            this.handleFormClick();
+            this.handleFormClick(event);
+            this.openModal();
+            this.closeModal();
         });
     }
 
@@ -194,6 +198,18 @@ class App{
         this.$activeForm.style.visibility = "hidden";
         this.$noteTitle.value = "";
         this.$noteText.value = "";
+    }
+
+    openModal(){
+        if(event.target.closest(".notes-section")){
+            this.$modal.classList.add("modal-open");
+        }
+    }
+
+    closeModal(){
+        if(event.target.closest("#close")){
+            this.$modal.classList.add("modal-close");
+        }
     }
 
     addNote({title, text}){
@@ -256,8 +272,8 @@ class App{
                         </div>
                     </div>
                     `
-        }).join("");
 
+        }).join("");
         // this.notes.map((item) =>{
         //     console.log(`
         //     ID: ${item.id}

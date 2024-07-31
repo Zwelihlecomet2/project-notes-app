@@ -255,7 +255,6 @@ nav .logo-area span:last-child:hover{
     flex-direction: row;
     width: 50px;
     margin-left: 10em;
-    /* gap: 20px; */
 }
 
 .notes-content{
@@ -306,6 +305,11 @@ nav .logo-area span:last-child:hover{
     visibility: hidden;
 }
 
+.notes:hover .material-icons{
+    visibility: visible;
+    transition: ease-in;
+}
+
 .notes .note-icons .material-icons:hover{
     color: black;
     background-color: #f1f3f4;
@@ -328,6 +332,14 @@ nav .logo-area span:last-child:hover{
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+}
+
+.modal-open{
+    visibility: visible;
+}
+
+.modal-close{
     visibility: hidden;
 }
 
