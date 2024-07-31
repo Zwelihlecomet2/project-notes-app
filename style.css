@@ -278,6 +278,9 @@ nav .logo-area span:last-child:hover{
     flex-wrap: wrap;
 }
 
+.notes:hover{
+    box-shadow: 3px 3px 30px black;
+}
 
 .notes .note-title{
     margin-left: 10px;
@@ -300,6 +303,7 @@ nav .logo-area span:last-child:hover{
     color: #757575;
     cursor: pointer;
     padding: 10px;
+    visibility: hidden;
 }
 
 .notes .note-icons .material-icons:hover{
@@ -313,6 +317,7 @@ nav .logo-area span:last-child:hover{
     top: -10px;
     left: -10px;
     cursor: pointer;
+    visibility: hidden;
 }
 
 /* Styles For the Modal */

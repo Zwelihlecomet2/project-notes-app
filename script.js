@@ -154,6 +154,7 @@ class App{
         this.$noteTitle = document.querySelector("#note-title");
         this.$noteText = document.querySelector("#note-text");
         this.$notes = document.querySelector(".notes-content");
+        this.$closeText = document.querySelector(".close-text");
         this.eventListeners();
     }
 
@@ -166,6 +167,7 @@ class App{
     handleFormClick(){
         const isFormContainerClickedOn = this.$formContainer.contains(event.target);
         const isActiveFormClickedOn = this.$activeForm.contains(event.target);
+        const isCloseTextClickedOn = this.$closeText.contains(event.target);
         const title = this.$noteTitle.value;
         const text = this.$noteText.value;
 
@@ -173,7 +175,7 @@ class App{
             this.openActiveForm();
         }
 
-        else if(!isActiveFormClickedOn){
+        else if(!isActiveFormClickedOn || isCloseTextClickedOn){
             if(title !== "" && text !== ""){
                 this.addNote({title, text});
             }
