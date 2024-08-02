@@ -156,6 +156,9 @@ class App{
         this.$notes = document.querySelector(".notes-content");
         this.$closeText = document.querySelector(".close-text");
         this.$modal = document.querySelector(".modal");
+        this.$modalContent = document.querySelector(".modal-content");
+        this.$modalTitle = document.querySelector("#modal-title");
+        this.$modalText = document.querySelector("#modal-text");
         this.$closeModal = document.querySelector("#close");
         this.eventListeners();
     }
@@ -203,12 +206,15 @@ class App{
     openModal(){
         if(event.target.closest(".notes-section")){
             this.$modal.classList.add("modal-open");
+            this.$modalTitle.value = "";
+            this.$modalText.value = "";
         }
     }
 
     closeModal(){
+        const isModalClickedOn = this.$modalContent.contains(event.target);
         if(event.target.closest("#close")){
-            this.$modal.classList.add("modal-close");
+            this.$modal.classList.remove("modal-open");
         }
     }
 

@@ -339,10 +339,6 @@ nav .logo-area span:last-child:hover{
     visibility: visible;
 }
 
-.modal-close{
-    visibility: hidden;
-}
-
 .modal .modal-content{
     height: 150px;
     width: 45%;
