@@ -168,7 +168,6 @@ class App{
             this.handleFormClick(event);
             this.openModal();
             this.closeModal();
-            this.archiveNote(this.displayNotes);
         });
     }
 
@@ -241,10 +240,6 @@ class App{
 
     archiveNote(){
         // this.notes = this.notes.filter(item => item.id !== id);
-        const archive = event.target.closest("#archive");
-        archive.addEventListener("click", () =>{
-            this.$notes.style.display = "none";
-        });
     }
 
     displayNotes(){
