@@ -168,6 +168,7 @@ class App{
             this.handleFormClick(event);
             this.openModal();
             this.closeModal();
+            this.archiveNote(this.displayNotes);
         });
     }
 
@@ -204,38 +205,46 @@ class App{
     }
 
     openModal(){
-        if(event.target.closest(".notes-section")){
+        const $openModal = event.target.closest(".notes-section");
+        const $selectedNote = event.target.closest(".notes-form");
+        const $archive = event.target.closest("#archive");
+        if($openModal && !$archive){
             this.$modal.classList.add("modal-open");
-            this.$modalTitle.value = "";
-            this.$modalText.value = "";
+            this.$modalTitle.value = $selectedNote.children[0].innerHTML;
+            this.$modalText.value = $selectedNote.children[1].innerHTML;
         }
     }
 
     closeModal(){
-        const isModalClickedOn = this.$modalContent.contains(event.target);
         if(event.target.closest("#close")){
+            this.editNote({title:this.$modalTitle.value, text:this.$modalText.value});
             this.$modal.classList.remove("modal-open");
         }
     }
 
     addNote({title, text}){
-        const newNote = new Note(cuid(), title, text);
-        this.notes = [...this.notes, newNote];
+        if(title != "" && text != ""){
+            const newNote = new Note(cuid(), title, text);
+            this.notes = [...this.notes, newNote];
+            this.displayNotes();
+        }
+    }
+
+    editNote({title, text}){
+        this.notes.map((item) =>{
+            item.title = title;
+            item.text = text;
+        })
         this.displayNotes();
     }
 
-    editNote(id, {title, text}){
-        this.notes.map((item) =>{
-            if(item.id === id){
-                item.title = title;
-                item.text = text;
-            }
-        })
-    }
 
-
-    deleteNote(id){
-        this.notes = this.notes.filter(item => item.id !== id);
+    archiveNote(){
+        // this.notes = this.notes.filter(item => item.id !== id);
+        const archive = event.target.closest("#archive");
+        archive.addEventListener("click", () =>{
+            this.$notes.style.display = "none";
+        });
     }
 
     displayNotes(){
@@ -247,8 +256,10 @@ class App{
                                 <span class="material-icons checkbox">check_circle</span>
                                 <span class="tooltip-text">Select note</span>
                             </div>
-                            <div class="note-title"><span>${item.title}</span></div>
-                            <div class="note-text"><span>${item.text}</span></div>
+                            <div class="notes-form">
+                                <div class="note-title">${item.title}</div>
+                                <div class="note-text">${item.text}</div>
+                            </div>
                             <div class="note-icons">
                                 <div class="tooltip">
                                     <span class="material-icons">add_alert</span>
@@ -266,7 +277,7 @@ class App{
                                     <span class="material-icons">image</span>
                                     <span class="tooltip-text">Add image</span>
                                 </div>
-                                <div class="tooltip">
+                                <div id="archive" class="tooltip">
                                     <span class="material-icons">archive</span>
                                     <span class="tooltip-text">Archive</span>
                                 </div>

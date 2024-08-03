@@ -281,6 +281,12 @@ nav .logo-area span:last-child:hover{
     box-shadow: 3px 3px 30px black;
 }
 
+.notes .notes-form{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
 .notes .note-title{
     margin-left: 10px;
     margin-top: 15px;
