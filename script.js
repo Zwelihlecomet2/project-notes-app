@@ -161,6 +161,7 @@ class App{
         this.$modalText = document.querySelector("#modal-text");
         this.$closeModal = document.querySelector("#close");
         this.$sidebar = document.querySelector(".side-bar");
+        this.$activeItem = document.querySelector(".side-bar-active-item");
         this.$sidebar.style.width = "80px";
         this.eventListeners();
     }
@@ -256,7 +257,7 @@ class App{
         if(this.$sidebar.style.width = "80px"){
             this.$sidebar.style.width = "250px";
             this.$sidebar.classList.add("sideBar-hover");
-            
+            this.$activeItem.classList.add("active-item");    
         }
     }
 
@@ -264,6 +265,7 @@ class App{
         if(this.$sidebar.style.width = "250px"){
             this.$sidebar.style.width = "80px";
             this.$sidebar.classList.remove("sideBar-hover");
+            this.$activeItem.classList.remove("active-item");
         }
     }
 
