@@ -8,7 +8,6 @@
 
 
 /* Styles For the navigation-bar */
-
 nav{
     height: 64px;
     display: flex;
@@ -116,7 +115,15 @@ nav .logo-area span:last-child:hover{
     left: 0;
     padding: 10px 0px;
     width: 80px;
+    transition: 0.8s;
+    height: 100%;
     overflow-x: hidden;
+}
+
+.sideBar-hover{
+    box-shadow: 3px 3px 30px #c2c3c3;
+    background-color: white;
+    color: black;
 }
 
 .side-bar .material-icons{
@@ -149,7 +156,6 @@ nav .logo-area span:last-child:hover{
 }
 
 /* Styles for the Form-Container */
-
 .form-container{
     height: 46px;
     max-width: 598px;

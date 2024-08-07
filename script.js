@@ -160,6 +160,8 @@ class App{
         this.$modalTitle = document.querySelector("#modal-title");
         this.$modalText = document.querySelector("#modal-text");
         this.$closeModal = document.querySelector("#close");
+        this.$sidebar = document.querySelector(".side-bar");
+        this.$sidebar.style.width = "80px";
         this.eventListeners();
     }
 
@@ -168,6 +170,14 @@ class App{
             this.handleFormClick(event);
             this.openModal();
             this.closeModal();
+        });
+
+        this.$sidebar.addEventListener("mouseover", () =>{
+            this.handleSideBarOver();
+        });
+
+        this.$sidebar.addEventListener("mouseout", () =>{
+            this.handleSideBarOut();
         });
     }
 
@@ -240,6 +250,21 @@ class App{
 
     archiveNote(){
         // this.notes = this.notes.filter(item => item.id !== id);
+    }
+
+    handleSideBarOver(){
+        if(this.$sidebar.style.width = "80px"){
+            this.$sidebar.style.width = "250px";
+            this.$sidebar.classList.add("sideBar-hover");
+            
+        }
+    }
+
+    handleSideBarOut(){
+        if(this.$sidebar.style.width = "250px"){
+            this.$sidebar.style.width = "80px";
+            this.$sidebar.classList.remove("sideBar-hover");
+        }
     }
 
     displayNotes(){
