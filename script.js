@@ -148,7 +148,7 @@ class Note{
 
 class App{
     constructor(){
-        this.notes = [];
+        this.notes = JSON.parse(localStorage.getItem("notes")) || [];
         this.$activeForm = document.querySelector(".active-form");
         this.$formContainer = document.querySelector(".form-container");
         this.$noteTitle = document.querySelector("#note-title");
@@ -236,7 +236,7 @@ class App{
         if(title != "" && text != ""){
             const newNote = new Note(cuid(), title, text);
             this.notes = [...this.notes, newNote];
-            this.displayNotes();
+            this.renderNotes();
         }
     }
 
@@ -245,7 +245,7 @@ class App{
             item.title = title;
             item.text = text;
         })
-        this.displayNotes();
+        this.renderNotes();
     }
 
 
@@ -267,6 +267,15 @@ class App{
             this.$sidebar.classList.remove("sideBar-hover");
             this.$activeItem.classList.remove("active-item");
         }
+    }
+
+    saveNotes(){
+        localStorage.setItem("notes", JSON.stringify(this.notes));
+    }
+
+    renderNotes(){
+        this.saveNotes();
+        this.displayNotes();
     }
 
     displayNotes(){
