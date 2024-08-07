@@ -163,6 +163,7 @@ class App{
         this.$sidebar = document.querySelector(".side-bar");
         this.$activeItem = document.querySelector(".side-bar-active-item");
         this.$sidebar.style.width = "80px";
+        this.$menu = document.querySelector("#menu-icon");
         this.eventListeners();
     }
 
@@ -180,7 +181,12 @@ class App{
         this.$sidebar.addEventListener("mouseout", () =>{
             this.handleSideBarOut();
         });
+        
+        this.$menu.addEventListener("click", () =>{
+            this.handleMenu();
+        });
     }
+
 
     handleFormClick(){
         const isFormContainerClickedOn = this.$formContainer.contains(event.target);
@@ -267,6 +273,10 @@ class App{
             this.$sidebar.classList.remove("sideBar-hover");
             this.$activeItem.classList.remove("active-item");
         }
+    }
+
+    handleMenu(){
+        this.handleSideBarOver();
     }
 
     saveNotes(){
